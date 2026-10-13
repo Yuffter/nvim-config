@@ -1,12 +1,19 @@
-# AstroNvim Template
+# Neovim Config (AstroNvim v6)
 
-**NOTE:** This is for AstroNvim v6+
+[AstroNvim](https://github.com/AstroNvim/AstroNvim) v6 をベースにした個人用 Neovim 設定です。
 
-A template for getting started with [AstroNvim](https://github.com/AstroNvim/AstroNvim)
+## 🛠️ インストール
 
-## 🛠️ Installation
+### 既存設定のバックアップ
 
-#### Make a backup of your current nvim and shared folder
+Windows (PowerShell):
+
+```powershell
+Move-Item $env:LOCALAPPDATA\nvim $env:LOCALAPPDATA\nvim.bak
+Move-Item $env:LOCALAPPDATA\nvim-data $env:LOCALAPPDATA\nvim-data.bak
+```
+
+Linux / macOS:
 
 ```shell
 mv ~/.config/nvim ~/.config/nvim.bak
@@ -15,20 +22,56 @@ mv ~/.local/state/nvim ~/.local/state/nvim.bak
 mv ~/.cache/nvim ~/.cache/nvim.bak
 ```
 
-#### Create a new user repository from this template
-
-Press the "Use this template" button above to create a new repository to store your user configuration.
-
-You can also just clone this repository directly if you do not want to track your user configuration in GitHub.
-
-#### Clone the repository
+### クローン
 
 ```shell
+# Windows
+git clone https://github.com/<your_user>/<your_repository> $env:LOCALAPPDATA\nvim
+# Linux / macOS
 git clone https://github.com/<your_user>/<your_repository> ~/.config/nvim
 ```
 
-#### Start Neovim
+### 起動
 
 ```shell
 nvim
 ```
+
+初回起動時に lazy.nvim がプラグインを、mason-tool-installer が LSP / フォーマッタ等を自動インストールします。
+
+## 📦 主な構成
+
+| 種類 | 内容 |
+| --- | --- |
+| AstroCommunity | Lua / TypeScript / JSON / HTML・CSS / Prettier / ESLint パック、blink-copilot、tokyonight、kanagawa |
+| C# | `roslyn.nvim`（Roslyn LS）、omnisharp 設定、csharpier |
+| Git | `lazygit.nvim`（`<Leader>gg`） |
+| Markdown | `markdown-preview.nvim`（`:MarkdownPreview` / `:MarkdownPreviewToggle`） |
+| Mason | lua-language-server, stylua, csharpier, debugpy, tree-sitter-cli |
+
+## ⚠️ 追加セットアップ
+
+### markdown-preview.nvim のビルド
+
+markdown-preview.nvim はプレビュー用のバイナリ（Node アプリ）をビルドする必要があります。
+初回インストール時に自動ビルドが失敗した場合や、`:MarkdownPreview` が動かない場合は、Neovim 内で以下を実行してください。
+
+```vim
+:Lazy build markdown-preview.nvim
+```
+
+実行後、Markdown ファイルを開いて `:MarkdownPreview` でブラウザにプレビューが表示されます（URL はコマンドラインにも表示されます）。
+
+### Roslyn Language Server（C#）
+
+`lua/plugins/roslyn.lua` は Roslyn LS を以下のパスから起動します。事前に配置しておいてください。
+
+```
+C:/tools/roslyn-ls/content/LanguageServer/win-x64/Microsoft.CodeAnalysis.LanguageServer.dll
+```
+
+`dotnet` コマンドに PATH が通っている必要があります。
+
+### LazyGit
+
+`<Leader>gg` を使うには [lazygit](https://github.com/jesseduffield/lazygit) 本体をインストールしておく必要があります。
