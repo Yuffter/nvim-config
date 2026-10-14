@@ -51,6 +51,16 @@ nvim
 
 ## ⚠️ 追加セットアップ
 
+### ripgrep（Windows）
+
+Windows ではファイル検索時に `find` が見つからないというエラーが出ることがあります。[ripgrep](https://github.com/BurntSushi/ripgrep) をインストールしてください。
+
+```powershell
+winget install BurntSushi.ripgrep.MSVC
+```
+
+インストール後、PATH を反映させるためにターミナルと Neovim を再起動してください。
+
 ### markdown-preview.nvim のビルド
 
 markdown-preview.nvim はプレビュー用のバイナリ（Node アプリ）をビルドする必要があります。
