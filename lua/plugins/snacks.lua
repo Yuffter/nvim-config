@@ -1,10 +1,12 @@
+local exclude = { "*.meta", "Library/", "Temp/", "Logs/", "obj/", "node_modules/", "dist/", ".next/" }
+
 return {
   "folke/snacks.nvim",
   opts = {
     picker = {
       sources = {
-        files = { exclude = { "*.meta", "Library/", "Temp/", "Logs/", "obj/", "node_modules/", "dist/", ".next/" } },
-        grep = { exclude = { "*.meta", "Library/", "Temp/", "Logs/", "obj/", "node_modules/", "dist/", ".next/" } },
+        files = { exclude = exclude },
+        grep = { exclude = exclude },
         layout = { preset = "default" },
       },
     },
@@ -27,4 +29,3 @@ return {
     },
   },
 }
-
