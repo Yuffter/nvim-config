@@ -36,18 +36,12 @@ return {
       -- end
     },
     -- enable servers that you already have installed without mason
-    servers = {
-      "tinymist",
-    },
+    -- 言語ごとのサーバーは python.lua / typst.lua などで追加する
+    -- (ここにリストを書くと、ほかのファイルで追加したサーバーが上書きされる)
     -- customize language server configuration passed to `vim.lsp.config`
     -- client specific configuration can also go in `lsp/` in your configuration root (see `:h lsp-config`)
     config = {
       -- ["*"] = { capabilities = {} }, -- modify default LSP client settings such as capabilities
-      tinymist = {
-        settings = {
-          exportPdf = "onSave",
-        },
-      },
     },
     -- customize how language servers are attached
     handlers = {
