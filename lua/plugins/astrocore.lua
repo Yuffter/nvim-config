@@ -17,6 +17,8 @@ return {
       highlighturl = true, -- highlight URLs at start
       notifications = true, -- enable notifications at start
     },
+    -- 未インストールの言語のファイルを開いたらパーサーを自動インストールする
+    treesitter = { auto_install = true },
     -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
     diagnostics = {
       virtual_text = true,
