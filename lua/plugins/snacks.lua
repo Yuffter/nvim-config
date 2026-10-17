@@ -2,6 +2,9 @@ local exclude = { "*.meta", "Library/", "Temp/", "Logs/", "obj/", "node_modules/
 
 return {
   "folke/snacks.nvim",
+  keys = {
+    { "<leader>ff", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
+  },
   opts = {
     picker = {
       sources = {
