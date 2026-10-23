@@ -33,7 +33,6 @@ return {
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         },
       },
-      -- 2列表示 (画面幅が足りないときは自動で1列になる)
       sections = {
         { section = "header" },
         { icon = " ", title = "Actions", section = "keys", indent = 2, padding = 1 },
@@ -41,8 +40,6 @@ return {
         { icon = " ", title = "Recent Files", section = "recent_files", cwd = false, indent = 2, padding = 1 },
         -- ショートカット早見表 (label は表示のみでキー割り当てはしない)
         {
-          pane = 2,
-          { padding = 7 },
           { icon = " ", title = "Shortcuts", indent = 2, padding = 1 },
           {
             indent = 2,
