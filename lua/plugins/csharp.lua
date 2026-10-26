@@ -7,6 +7,8 @@ return {
       handlers = {
         -- C# は roslyn.nvim を使うので omnisharp は起動しない（二重起動で重くなるため）
         omnisharp = false,
+        -- Mason の roslyn-language-server は lspconfig の roslyn_ls として自動起動されるので止める（roslyn.nvim 側と二重になるため）
+        roslyn_ls = false,
       },
     },
   },
@@ -16,7 +18,7 @@ return {
     opts = {
       broad_search = false,
       lock_target = true,
-      -- Neovim側のファイル監視を切り、roslyn自身に監視させる（WindowsでUnityのLibrary等を監視して重くなるのを防ぐ）
+      -- Neovim側のファイル監視を切り、roslyn自身に監視させる（UnityのLibrary等を監視して重くなるのを防ぐ）
       filewatching = "roslyn",
     },
     config = function(_, opts)
@@ -25,13 +27,7 @@ return {
           DOTNET_gcServer = "0",
           DOTNET_GCHeapHardLimitPercent = "14", -- 32GB × 14% ≒ 4.5GB
         },
-        cmd = {
-          "dotnet",
-          "C:/tools/roslyn-ls/content/LanguageServer/win-x64/Microsoft.CodeAnalysis.LanguageServer.dll",
-          "--logLevel=Warning",
-          "--extensionLogDirectory=" .. vim.fs.joinpath(vim.uv.os_tmpdir(), "roslyn_ls/logs"),
-          "--stdio",
-        },
+        -- cmd は roslyn.nvim のデフォルト（Mason の roslyn-language-server を自動検出）に任せる
         settings = {
           ["csharp|inlay_hints"] = {
             csharp_enable_inlay_hints_for_implicit_object_creation = true,

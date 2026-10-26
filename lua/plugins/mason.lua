@@ -12,6 +12,7 @@ return {
         "pyright", -- Python
         "ruff", -- Python (lint + formatter)
         "tinymist", -- Typst
+        "roslyn-language-server", -- C# (roslyn.nvim が自動検出する)
         -- formatters
         "stylua",
         "csharpier", -- C#
