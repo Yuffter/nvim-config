@@ -48,6 +48,7 @@ return {
             { icon = " ", desc = "ファイル検索", label = "Space ff" },
             { icon = " ", desc = "文字列検索 (grep)", label = "Space fw" },
             { icon = " ", desc = "ファイルツリー", label = "Space e" },
+            { icon = "󰏇 ", desc = "Oil (ファイル操作)", label = "-  Space O" },
             { icon = " ", desc = "ターミナル", label = "Ctrl+/  Alt+t" },
             { icon = " ", desc = "LazyGit", label = "Space gg" },
             { icon = " ", desc = "Diffview (差分)", label = "Space gv" },
