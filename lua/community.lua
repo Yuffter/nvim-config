@@ -13,5 +13,7 @@ return {
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.prettier" },
   { import = "astrocommunity.pack.eslint" },
+  -- vscode-neovim で動かすときは VSCode と相性のよいプラグインだけ読み込む (ターミナルの Neovim には影響しない)
+  { import = "astrocommunity.recipes.vscode" },
   -- import/override with your plugins folder
 }
