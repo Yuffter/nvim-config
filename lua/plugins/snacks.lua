@@ -4,6 +4,12 @@ return {
   "folke/snacks.nvim",
   keys = {
     { "<leader>ff", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
+    -- VSCode風のショートカット: Mac は Cmd+P、Windows などは Ctrl+P
+    {
+      vim.fn.has "mac" == 1 and "<D-p>" or "<C-p>",
+      function() Snacks.picker.smart() end,
+      desc = "Smart Find Files",
+    },
   },
   opts = {
     picker = {
